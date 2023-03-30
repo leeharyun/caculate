@@ -16,6 +16,7 @@ const calculateState = () => {
   const initResult = () => {
     result = 0;
     operator = '';
+
     changeResult();
   };
 
@@ -50,6 +51,29 @@ const calculateState = () => {
 
   const convertResultPercent = () => {
     result = result / 100;
+    changeResult();
+  };
+
+  const computedAction = () => {
+    const operatorIsAdd = operator === '+';
+    const operatorIsSub = operator === '-';
+    const operatorIsMult = operator === 'X';
+    const operatorIsDiv = operator === '/';
+
+    if (operatorIsAdd) {
+      computedCount = prevCount + result;
+    }
+    if (operatorIsSub) {
+      computedCount = prevCount - result;
+    }
+    if (operatorIsMult) {
+      computedCount = prevCount * result;
+    }
+    if (operatorIsDiv) {
+      computedCount = prevCount / result;
+    }
+
+    result = computedCount;
     changeResult();
   };
 
@@ -92,26 +116,7 @@ const calculateState = () => {
     }
 
     if (isComputedResult) {
-      const operatorIsAdd = operator === '+';
-      const operatorIsSub = operator === '-';
-      const operatorIsMult = operator === 'X';
-      const operatorIsDiv = operator === '/';
-
-      if (operatorIsAdd) {
-        computedCount = prevCount + result;
-      }
-      if (operatorIsSub) {
-        computedCount = prevCount - result;
-      }
-      if (operatorIsMult) {
-        computedCount = prevCount * result;
-      }
-      if (operatorIsDiv) {
-        computedCount = prevCount / result;
-      }
-
-      result = computedCount;
-      changeResult();
+      computedAction();
       return;
     }
   };
