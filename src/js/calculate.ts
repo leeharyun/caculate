@@ -127,12 +127,12 @@ const calculateState = () => {
   };
 };
 
+const DEFAULT_BUTTONS_SELECTOR = '.calculator-container .buttons-section .button-table tr td';
+
 const buttonsAddClickEvent = (selector: string, event: (e: Event) => void) => {
   const buttons = document.querySelectorAll(selector);
   buttons.forEach((button) => button.addEventListener('click', event));
 };
-
-const DEFAULT_BUTTONS_SELECTOR = '.calculator-container .buttons-section .button-table tr td';
 
 window.onload = () => {
   const calculate = calculateState();
