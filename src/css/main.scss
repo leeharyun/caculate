@@ -1,0 +1,21 @@
+.calculator-container {
+  .result-section {
+  }
+  .buttons-section {
+    .button-table {
+      tr td {
+        padding: 16px;
+        text-align: center;
+        border: 1px solid;
+      }
+    }
+  }
+}
+
+.left {
+  text-align: left !important;
+}
+
+.right {
+  text-align: right !important;
+}
